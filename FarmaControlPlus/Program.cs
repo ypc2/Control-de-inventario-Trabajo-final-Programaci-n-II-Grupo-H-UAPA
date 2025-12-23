@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FarmaciaMiPueblo  // ← CAMBIAR AQUÍ
+namespace FarmaControlPlus  // ← CAMBIAR AQUÍ
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace FarmaciaMiPueblo  // ← CAMBIAR AQUÍ
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());  // ← Ahora encontrará Form1 correctamente
+            Application.Run(new Form1());
         }
     }
 }
