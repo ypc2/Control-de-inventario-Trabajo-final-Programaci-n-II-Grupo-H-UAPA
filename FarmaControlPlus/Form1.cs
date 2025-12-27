@@ -58,13 +58,13 @@ namespace FarmaControlPlus
                 throw new ArgumentNullException(nameof(vistaAMostrar));
             }
 
-            // Hide all child controls in the container (panels and user controls)
+            // Ocultar todos los controles hijos en el contenedor (paneles y controles de usuario)
             foreach (Control control in panelContenedor.Controls)
             {
                 control.Visible = false;
             }
 
-            // Show requested view and ensure it's on top
+            // Mostrar la vista solicitada y asegurarse de que esté al frente
             vistaAMostrar.Visible = true;
             vistaAMostrar.BringToFront();
         }
@@ -76,14 +76,14 @@ namespace FarmaControlPlus
                 throw new ArgumentNullException(nameof(panelAMostrar));
             }
             panelAMostrar.Visible = true;
-            // Hide all panels
+            // Ocultar todos los paneles
             pnlDashboard.Visible = false;
             pnlInventario.Visible = false;
             pnlReportes.Visible = false;
             pnlConfiguracion.Visible = false;
             pnlUsuarios.Visible = false;
 
-            // Show and bring the requested panel to front
+            // Mostrar y llevar el panel solicitado al frente
             panelAMostrar.Visible = true;
             panelAMostrar.BringToFront();
         }
@@ -92,9 +92,7 @@ namespace FarmaControlPlus
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             MostrarVista(dashboardView);
-            lblTitulo.Text = "Dashboard";
-            // Removed runtime update to keep dashboard content static.
-            // dashboardView.UpdateDashboardData();
+            lblTitulo.Text = "Inicio";
         }
 
         private void btnInventario_Click(object sender, EventArgs e)

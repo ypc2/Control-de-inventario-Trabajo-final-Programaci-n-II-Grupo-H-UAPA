@@ -18,6 +18,9 @@
             private void InitializeComponent()
             {
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelUsuario = new System.Windows.Forms.Panel();
+            this.lblRangoUsuario = new System.Windows.Forms.Label();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.btnConfiguracion = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
@@ -27,9 +30,6 @@
             this.lblLogo = new System.Windows.Forms.Label();
             this.panelSuperior = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.panelUsuario = new System.Windows.Forms.Panel();
-            this.lblRangoUsuario = new System.Windows.Forms.Label();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.pnlUsuarios = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,9 +42,9 @@
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.lblDashboard = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
+            this.panelUsuario.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelSuperior.SuspendLayout();
-            this.panelUsuario.SuspendLayout();
             this.panelContenedor.SuspendLayout();
             this.pnlUsuarios.SuspendLayout();
             this.pnlConfiguracion.SuspendLayout();
@@ -69,8 +69,42 @@
             this.panelMenu.Size = new System.Drawing.Size(220, 700);
             this.panelMenu.TabIndex = 0;
             // 
+            // panelUsuario
+            // 
+            this.panelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.panelUsuario.Controls.Add(this.lblRangoUsuario);
+            this.panelUsuario.Controls.Add(this.lblNombreUsuario);
+            this.panelUsuario.Location = new System.Drawing.Point(12, 640);
+            this.panelUsuario.Name = "panelUsuario";
+            this.panelUsuario.Size = new System.Drawing.Size(179, 48);
+            this.panelUsuario.TabIndex = 2;
+            // 
+            // lblRangoUsuario
+            // 
+            this.lblRangoUsuario.AutoSize = true;
+            this.lblRangoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRangoUsuario.ForeColor = System.Drawing.Color.LightGray;
+            this.lblRangoUsuario.Location = new System.Drawing.Point(14, 17);
+            this.lblRangoUsuario.Name = "lblRangoUsuario";
+            this.lblRangoUsuario.Size = new System.Drawing.Size(70, 13);
+            this.lblRangoUsuario.TabIndex = 2;
+            this.lblRangoUsuario.Text = "Administrador";
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(14, 0);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(81, 15);
+            this.lblNombreUsuario.TabIndex = 1;
+            this.lblNombreUsuario.Text = "Admin User";
+            // 
             // btnUsuarios
             // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
             this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnUsuarios.FlatAppearance.BorderSize = 0;
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -83,7 +117,7 @@
             this.btnUsuarios.TabIndex = 5;
             this.btnUsuarios.Text = "   Usuarios";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.UseVisualStyleBackColor = true;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
             // btnConfiguracion
@@ -149,7 +183,7 @@
             this.btnDashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnDashboard.Size = new System.Drawing.Size(220, 50);
             this.btnDashboard.TabIndex = 1;
-            this.btnDashboard.Text = "   Dashboard";
+            this.btnDashboard.Text = "   Inicio";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
@@ -169,11 +203,11 @@
             this.lblLogo.AutoSize = true;
             this.lblLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogo.ForeColor = System.Drawing.Color.White;
-            this.lblLogo.Location = new System.Drawing.Point(50, 40);
+            this.lblLogo.Location = new System.Drawing.Point(25, 36);
             this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(109, 24);
+            this.lblLogo.Size = new System.Drawing.Size(148, 24);
             this.lblLogo.TabIndex = 0;
-            this.lblLogo.Text = "FarmaPlus";
+            this.lblLogo.Text = "FarmaControl+";
             // 
             // panelSuperior
             // 
@@ -194,39 +228,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(127, 26);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Dashboard";
-            // 
-            // panelUsuario
-            // 
-            this.panelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.panelUsuario.Controls.Add(this.lblRangoUsuario);
-            this.panelUsuario.Controls.Add(this.lblNombreUsuario);
-            this.panelUsuario.Location = new System.Drawing.Point(12, 640);
-            this.panelUsuario.Name = "panelUsuario";
-            this.panelUsuario.Size = new System.Drawing.Size(179, 48);
-            this.panelUsuario.TabIndex = 2;
-            // 
-            // lblRangoUsuario
-            // 
-            this.lblRangoUsuario.AutoSize = true;
-            this.lblRangoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRangoUsuario.ForeColor = System.Drawing.Color.LightGray;
-            this.lblRangoUsuario.Location = new System.Drawing.Point(14, 17);
-            this.lblRangoUsuario.Name = "lblRangoUsuario";
-            this.lblRangoUsuario.Size = new System.Drawing.Size(70, 13);
-            this.lblRangoUsuario.TabIndex = 2;
-            this.lblRangoUsuario.Text = "Administrador";
-            // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(14, 0);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(81, 15);
-            this.lblNombreUsuario.TabIndex = 1;
-            this.lblNombreUsuario.Text = "Admin User";
             // 
             // panelContenedor
             // 
@@ -360,12 +361,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema de Gestión";
             this.panelMenu.ResumeLayout(false);
+            this.panelUsuario.ResumeLayout(false);
+            this.panelUsuario.PerformLayout();
             this.panelLogo.ResumeLayout(false);
             this.panelLogo.PerformLayout();
             this.panelSuperior.ResumeLayout(false);
             this.panelSuperior.PerformLayout();
-            this.panelUsuario.ResumeLayout(false);
-            this.panelUsuario.PerformLayout();
             this.panelContenedor.ResumeLayout(false);
             this.pnlUsuarios.ResumeLayout(false);
             this.pnlUsuarios.PerformLayout();
