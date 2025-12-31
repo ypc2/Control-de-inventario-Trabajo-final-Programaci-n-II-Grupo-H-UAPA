@@ -19,7 +19,6 @@ namespace TuProyecto.Views
         public Reportes()
         {
             InitializeComponent();
-            FechaReporte = DateTime.Now;
 
             // Configurar eventos que deben estar en el archivo .cs
             ConfigurarEventos();
@@ -43,31 +42,14 @@ namespace TuProyecto.Views
 
         private void InicializarControl()
         {
-            // Si existe dtpFecha, configurarlo
-            if (this.dtpFecha != null)
-            {
-                // Evitar disparar el evento al inicializar el valor
-                this.dtpFecha.ValueChanged -= DtpFecha_ValueChanged;
-                this.dtpFecha.Value = FechaReporte;
-                this.dtpFecha.ValueChanged += DtpFecha_ValueChanged;
-            }
-
-            ActualizarTitulo();
             ConfigurarEstilos();
 
             // Cargar datos de ejemplo
             CargarDatosEjemplo();
         }
-
-        public void ActualizarTitulo()
-        {
-            lblTitulo.Text = $"Ventas diarias: {FechaReporte:dd/MM/yyyy}";
-        }
-
         public void SetFecha(DateTime fecha)
         {
             FechaReporte = fecha;
-            ActualizarTitulo();
 
             // Actualizar dtpFecha si existe
             if (this.dtpFecha != null)
@@ -216,7 +198,6 @@ namespace TuProyecto.Views
 
             // Actualizar la fecha del reporte y notificar
             FechaReporte = this.dtpFecha.Value.Date;
-            ActualizarTitulo();
             FechaCambiada?.Invoke(this, EventArgs.Empty);
         }
 
