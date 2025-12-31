@@ -27,8 +27,6 @@ namespace TuProyecto.Views
 
         private void ConfigurarEventos()
         {
-            this.btnAnterior.Click += BtnAnterior_Click;
-            this.btnSiguiente.Click += BtnSiguiente_Click;
             this.btnExportar.Click += BtnExportar_Click;
             this.dgvReporte.CellFormatting += DgvReporte_CellFormatting;
             this.dgvReporte.RowPostPaint += DgvReporte_RowPostPaint;
@@ -109,19 +107,12 @@ namespace TuProyecto.Views
             Color colorAccion = Color.FromArgb(155, 89, 182);
 
             pnlEncabezado.BackColor = Color.WhiteSmoke;
-            pnlPie.BackColor = Color.WhiteSmoke;
 
-            btnAnterior.BackColor = colorPrincipal;
-            btnSiguiente.BackColor = colorSecundario;
             btnExportar.BackColor = colorAccion;
 
-            btnAnterior.ForeColor = Color.White;
-            btnSiguiente.ForeColor = Color.White;
             btnExportar.ForeColor = Color.White;
 
             // Configurar botones con estilo plano
-            btnAnterior.FlatAppearance.BorderSize = 0;
-            btnSiguiente.FlatAppearance.BorderSize = 0;
             btnExportar.FlatAppearance.BorderSize = 0;
 
             // Estilos para DateTimePicker si existe
@@ -158,32 +149,6 @@ namespace TuProyecto.Views
             dt.Rows.Add("557-23", "Omeprazol", "Senica", "100", "Tabletas", 0.90m, 1, 0.90m);
 
             CargarDatos(dt);
-        }
-
-        private void BtnAnterior_Click(object sender, EventArgs e)
-        {
-            // Si existe dtpFecha, navegar usando el DateTimePicker
-            if (this.dtpFecha != null)
-            {
-                this.dtpFecha.Value = this.dtpFecha.Value.AddDays(-1);
-            }
-            else
-            {
-                AnteriorClicked?.Invoke(this, EventArgs.Empty);
-            }
-        }
-
-        private void BtnSiguiente_Click(object sender, EventArgs e)
-        {
-            // Si existe dtpFecha, navegar usando el DateTimePicker
-            if (this.dtpFecha != null)
-            {
-                this.dtpFecha.Value = this.dtpFecha.Value.AddDays(1);
-            }
-            else
-            {
-                SiguienteClicked?.Invoke(this, EventArgs.Empty);
-            }
         }
 
         private void BtnExportar_Click(object sender, EventArgs e)

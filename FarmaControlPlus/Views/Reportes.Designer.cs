@@ -6,14 +6,10 @@
 
         private System.Windows.Forms.Panel pnlEncabezado;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.Label lblSeparador;
         private System.Windows.Forms.DataGridView dgvReporte;
-        private System.Windows.Forms.Panel pnlPie;
         private System.Windows.Forms.Label lblInfoPaginacion;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Button btnAnterior;
-        private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnExportar;
 
         // Añadir el DateTimePicker
@@ -43,7 +39,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblFiltro = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.lblSeparador = new System.Windows.Forms.Label();
             this.dgvReporte = new System.Windows.Forms.DataGridView();
@@ -55,15 +50,11 @@
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlPie = new System.Windows.Forms.Panel();
             this.lblInfoPaginacion = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.btnAnterior = new System.Windows.Forms.Button();
-            this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
             this.pnlEncabezado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).BeginInit();
-            this.pnlPie.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlEncabezado
@@ -71,7 +62,6 @@
             this.pnlEncabezado.BackColor = System.Drawing.Color.LightGray;
             this.pnlEncabezado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlEncabezado.Controls.Add(this.lblTitulo);
-            this.pnlEncabezado.Controls.Add(this.lblFiltro);
             this.pnlEncabezado.Controls.Add(this.dtpFecha);
             this.pnlEncabezado.Location = new System.Drawing.Point(0, 0);
             this.pnlEncabezado.Name = "pnlEncabezado";
@@ -87,16 +77,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(139, 25);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "Ventas diarias:";
-            // 
-            // lblFiltro
-            // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(800, 20);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(114, 19);
-            this.lblFiltro.TabIndex = 1;
-            this.lblFiltro.Text = "Show | 10 entries";
             // 
             // dtpFecha
             // 
@@ -146,7 +126,7 @@
             this.dgvReporte.ReadOnly = true;
             this.dgvReporte.RowHeadersVisible = false;
             this.dgvReporte.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReporte.Size = new System.Drawing.Size(964, 350);
+            this.dgvReporte.Size = new System.Drawing.Size(964, 403);
             this.dgvReporte.TabIndex = 2;
             // 
             // colCodigo
@@ -205,70 +185,32 @@
             this.colSubtotal.Name = "colSubtotal";
             this.colSubtotal.ReadOnly = true;
             // 
-            // pnlPie
-            // 
-            this.pnlPie.BackColor = System.Drawing.Color.LightGray;
-            this.pnlPie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlPie.Controls.Add(this.lblInfoPaginacion);
-            this.pnlPie.Controls.Add(this.lblTotal);
-            this.pnlPie.Controls.Add(this.btnAnterior);
-            this.pnlPie.Controls.Add(this.btnSiguiente);
-            this.pnlPie.Controls.Add(this.btnExportar);
-            this.pnlPie.Location = new System.Drawing.Point(0, 450);
-            this.pnlPie.Name = "pnlPie";
-            this.pnlPie.Size = new System.Drawing.Size(984, 120);
-            this.pnlPie.TabIndex = 3;
-            // 
             // lblInfoPaginacion
             // 
             this.lblInfoPaginacion.AutoSize = true;
             this.lblInfoPaginacion.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoPaginacion.Location = new System.Drawing.Point(20, 20);
+            this.lblInfoPaginacion.Location = new System.Drawing.Point(22, 505);
             this.lblInfoPaginacion.Name = "lblInfoPaginacion";
-            this.lblInfoPaginacion.Size = new System.Drawing.Size(200, 19);
+            this.lblInfoPaginacion.Size = new System.Drawing.Size(77, 19);
             this.lblInfoPaginacion.TabIndex = 0;
-            this.lblInfoPaginacion.Text = "Mostrando 1 a 5 de 5 registros";
+            this.lblInfoPaginacion.Text = "Mostrando";
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(800, 20);
+            this.lblTotal.Location = new System.Drawing.Point(801, 504);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(60, 21);
             this.lblTotal.TabIndex = 1;
             this.lblTotal.Text = "TOTAL:";
             // 
-            // btnAnterior
-            // 
-            this.btnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnterior.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnterior.ForeColor = System.Drawing.Color.White;
-            this.btnAnterior.Location = new System.Drawing.Point(300, 60);
-            this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(100, 30);
-            this.btnAnterior.TabIndex = 2;
-            this.btnAnterior.Text = "Previous";
-            this.btnAnterior.UseVisualStyleBackColor = false;
-            // 
-            // btnSiguiente
-            // 
-            this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSiguiente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguiente.ForeColor = System.Drawing.Color.White;
-            this.btnSiguiente.Location = new System.Drawing.Point(420, 60);
-            this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(100, 30);
-            this.btnSiguiente.TabIndex = 3;
-            this.btnSiguiente.Text = "Next";
-            this.btnSiguiente.UseVisualStyleBackColor = false;
-            // 
             // btnExportar
             // 
             this.btnExportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportar.ForeColor = System.Drawing.Color.White;
-            this.btnExportar.Location = new System.Drawing.Point(550, 60);
+            this.btnExportar.ForeColor = System.Drawing.Color.Black;
+            this.btnExportar.Location = new System.Drawing.Point(558, 499);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(100, 30);
             this.btnExportar.TabIndex = 4;
@@ -279,18 +221,19 @@
             // 
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.btnExportar);
+            this.Controls.Add(this.lblInfoPaginacion);
             this.Controls.Add(this.pnlEncabezado);
             this.Controls.Add(this.lblSeparador);
             this.Controls.Add(this.dgvReporte);
-            this.Controls.Add(this.pnlPie);
             this.Name = "Reportes";
             this.Size = new System.Drawing.Size(982, 569);
             this.pnlEncabezado.ResumeLayout(false);
             this.pnlEncabezado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporte)).EndInit();
-            this.pnlPie.ResumeLayout(false);
-            this.pnlPie.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
     }
