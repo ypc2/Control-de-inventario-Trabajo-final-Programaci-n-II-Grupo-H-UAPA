@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBusqueda = new System.Windows.Forms.Panel();
             this.btnLimpiarBusqueda = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -39,6 +39,12 @@
             this.panelContenido = new System.Windows.Forms.Panel();
             this.groupBoxInventario = new System.Windows.Forms.GroupBox();
             this.dataGridViewInventario = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnReporte = new System.Windows.Forms.Button();
@@ -66,12 +72,6 @@
             this.lblDetalles = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBusqueda.SuspendLayout();
             this.panelContenido.SuspendLayout();
             this.groupBoxInventario.SuspendLayout();
@@ -146,7 +146,7 @@
             this.panelContenido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenido.Location = new System.Drawing.Point(0, 50);
             this.panelContenido.Name = "panelContenido";
-            this.panelContenido.Size = new System.Drawing.Size(784, 521);
+            this.panelContenido.Size = new System.Drawing.Size(754, 521);
             this.panelContenido.TabIndex = 2;
             // 
             // groupBoxInventario
@@ -157,7 +157,7 @@
             this.groupBoxInventario.Location = new System.Drawing.Point(0, 0);
             this.groupBoxInventario.Name = "groupBoxInventario";
             this.groupBoxInventario.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBoxInventario.Size = new System.Drawing.Size(784, 471);
+            this.groupBoxInventario.Size = new System.Drawing.Size(754, 471);
             this.groupBoxInventario.TabIndex = 2;
             this.groupBoxInventario.TabStop = false;
             this.groupBoxInventario.Text = "Inventario de Medicamentos";
@@ -166,19 +166,19 @@
             // 
             this.dataGridViewInventario.AllowUserToAddRows = false;
             this.dataGridViewInventario.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.AliceBlue;
-            this.dataGridViewInventario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+            this.dataGridViewInventario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewInventario.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewInventario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewInventario.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewInventario.ColumnHeadersHeight = 40;
             this.dataGridViewInventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nombre,
@@ -187,14 +187,14 @@
             this.Stock,
             this.Precio,
             this.FechaVencimiento});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewInventario.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewInventario.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewInventario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewInventario.EnableHeadersVisualStyles = false;
             this.dataGridViewInventario.Location = new System.Drawing.Point(10, 24);
@@ -203,9 +203,49 @@
             this.dataGridViewInventario.RowHeadersVisible = false;
             this.dataGridViewInventario.RowTemplate.Height = 35;
             this.dataGridViewInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewInventario.Size = new System.Drawing.Size(764, 437);
+            this.dataGridViewInventario.Size = new System.Drawing.Size(734, 437);
             this.dataGridViewInventario.TabIndex = 0;
             this.dataGridViewInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventario_CellClick);
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre del Medicamento";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 250;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Código";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 90;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 70;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio Unitario";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // FechaVencimiento
+            // 
+            this.FechaVencimiento.HeaderText = "Fecha de Vencimiento";
+            this.FechaVencimiento.Name = "FechaVencimiento";
+            this.FechaVencimiento.ReadOnly = true;
+            this.FechaVencimiento.Width = 160;
             // 
             // panelBotones
             // 
@@ -218,7 +258,7 @@
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Location = new System.Drawing.Point(0, 471);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Size = new System.Drawing.Size(784, 50);
+            this.panelBotones.Size = new System.Drawing.Size(754, 50);
             this.panelBotones.TabIndex = 1;
             // 
             // btnExportar
@@ -296,8 +336,9 @@
             this.groupBoxGuia.Controls.Add(this.flowLayoutPanelGuia);
             this.groupBoxGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.groupBoxGuia.Location = new System.Drawing.Point(10, 215);
+            this.groupBoxGuia.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxGuia.Name = "groupBoxGuia";
-            this.groupBoxGuia.Size = new System.Drawing.Size(180, 295);
+            this.groupBoxGuia.Size = new System.Drawing.Size(205, 295);
             this.groupBoxGuia.TabIndex = 3;
             this.groupBoxGuia.TabStop = false;
             this.groupBoxGuia.Text = "Estados de Medicamentos";
@@ -315,8 +356,9 @@
             this.flowLayoutPanelGuia.Location = new System.Drawing.Point(3, 17);
             this.flowLayoutPanelGuia.Name = "flowLayoutPanelGuia";
             this.flowLayoutPanelGuia.Padding = new System.Windows.Forms.Padding(3);
-            this.flowLayoutPanelGuia.Size = new System.Drawing.Size(174, 275);
+            this.flowLayoutPanelGuia.Size = new System.Drawing.Size(199, 275);
             this.flowLayoutPanelGuia.TabIndex = 0;
+            this.flowLayoutPanelGuia.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelGuia_Paint);
             // 
             // panelSinStock
             // 
@@ -326,8 +368,10 @@
             this.panelSinStock.Controls.Add(this.lblSinStock);
             this.panelSinStock.Location = new System.Drawing.Point(6, 6);
             this.panelSinStock.Name = "panelSinStock";
-            this.panelSinStock.Size = new System.Drawing.Size(160, 42);
+            this.panelSinStock.Size = new System.Drawing.Size(181, 42);
             this.panelSinStock.TabIndex = 1;
+
+
             // 
             // label6
             // 
@@ -348,7 +392,7 @@
             this.lblSinStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
             this.lblSinStock.Location = new System.Drawing.Point(0, 0);
             this.lblSinStock.Name = "lblSinStock";
-            this.lblSinStock.Size = new System.Drawing.Size(158, 16);
+            this.lblSinStock.Size = new System.Drawing.Size(179, 16);
             this.lblSinStock.TabIndex = 0;
             this.lblSinStock.Text = "SIN STOCK";
             this.lblSinStock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,7 +405,7 @@
             this.panelPuntoVencer.Controls.Add(this.lblPuntoVencer);
             this.panelPuntoVencer.Location = new System.Drawing.Point(6, 54);
             this.panelPuntoVencer.Name = "panelPuntoVencer";
-            this.panelPuntoVencer.Size = new System.Drawing.Size(160, 42);
+            this.panelPuntoVencer.Size = new System.Drawing.Size(181, 42);
             this.panelPuntoVencer.TabIndex = 2;
             // 
             // label7
@@ -370,7 +414,7 @@
             this.label7.Location = new System.Drawing.Point(-1, 20);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(159, 20);
+            this.label7.Size = new System.Drawing.Size(181, 20);
             this.label7.TabIndex = 1;
             this.label7.Text = "Vence < 30 días";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -383,29 +427,30 @@
             this.lblPuntoVencer.ForeColor = System.Drawing.Color.Black;
             this.lblPuntoVencer.Location = new System.Drawing.Point(0, 0);
             this.lblPuntoVencer.Name = "lblPuntoVencer";
-            this.lblPuntoVencer.Size = new System.Drawing.Size(158, 16);
+            this.lblPuntoVencer.Size = new System.Drawing.Size(179, 16);
             this.lblPuntoVencer.TabIndex = 0;
             this.lblPuntoVencer.Text = "POR VENCER";
             this.lblPuntoVencer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelPorVencer
             // 
-            this.panelPorVencer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(240)))), ((int)(((byte)(220)))));
+            this.panelPorVencer.BackColor = System.Drawing.Color.DarkOrange;
             this.panelPorVencer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPorVencer.Controls.Add(this.label8);
             this.panelPorVencer.Controls.Add(this.lblPorVencerGuia);
             this.panelPorVencer.Location = new System.Drawing.Point(6, 102);
             this.panelPorVencer.Name = "panelPorVencer";
-            this.panelPorVencer.Size = new System.Drawing.Size(160, 42);
+            this.panelPorVencer.Size = new System.Drawing.Size(181, 42);
             this.panelPorVencer.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Location = new System.Drawing.Point(-1, 20);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(159, 13);
+            this.label8.Size = new System.Drawing.Size(181, 13);
             this.label8.TabIndex = 1;
             this.label8.Text = "Fecha caducada";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -415,10 +460,10 @@
             // 
             this.lblPorVencerGuia.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPorVencerGuia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblPorVencerGuia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(140)))), ((int)(((byte)(0)))));
+            this.lblPorVencerGuia.ForeColor = System.Drawing.Color.White;
             this.lblPorVencerGuia.Location = new System.Drawing.Point(0, 0);
             this.lblPorVencerGuia.Name = "lblPorVencerGuia";
-            this.lblPorVencerGuia.Size = new System.Drawing.Size(158, 16);
+            this.lblPorVencerGuia.Size = new System.Drawing.Size(179, 16);
             this.lblPorVencerGuia.TabIndex = 0;
             this.lblPorVencerGuia.Text = "VENCIDO";
             this.lblPorVencerGuia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -426,22 +471,23 @@
             // 
             // panelBajoStock
             // 
-            this.panelBajoStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.panelBajoStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panelBajoStock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBajoStock.Controls.Add(this.label9);
             this.panelBajoStock.Controls.Add(this.lblBajoStock);
             this.panelBajoStock.Location = new System.Drawing.Point(6, 150);
             this.panelBajoStock.Name = "panelBajoStock";
-            this.panelBajoStock.Size = new System.Drawing.Size(160, 42);
+            this.panelBajoStock.Size = new System.Drawing.Size(180, 42);
             this.panelBajoStock.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(-1, 20);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 13);
+            this.label9.Size = new System.Drawing.Size(179, 13);
             this.label9.TabIndex = 1;
             this.label9.Text = "< 10 unidades";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -451,10 +497,10 @@
             // 
             this.lblBajoStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBajoStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
-            this.lblBajoStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblBajoStock.ForeColor = System.Drawing.Color.White;
             this.lblBajoStock.Location = new System.Drawing.Point(0, 0);
             this.lblBajoStock.Name = "lblBajoStock";
-            this.lblBajoStock.Size = new System.Drawing.Size(158, 16);
+            this.lblBajoStock.Size = new System.Drawing.Size(178, 16);
             this.lblBajoStock.TabIndex = 0;
             this.lblBajoStock.Text = "BAJO STOCK";
             this.lblBajoStock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -467,7 +513,7 @@
             this.panelNormal.Controls.Add(this.lblNormal);
             this.panelNormal.Location = new System.Drawing.Point(6, 198);
             this.panelNormal.Name = "panelNormal";
-            this.panelNormal.Size = new System.Drawing.Size(160, 42);
+            this.panelNormal.Size = new System.Drawing.Size(181, 42);
             this.panelNormal.TabIndex = 5;
             // 
             // label10
@@ -476,7 +522,7 @@
             this.label10.Location = new System.Drawing.Point(4, 20);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 13);
+            this.label10.Size = new System.Drawing.Size(176, 13);
             this.label10.TabIndex = 1;
             this.label10.Text = "Stock normal";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -489,7 +535,7 @@
             this.lblNormal.ForeColor = System.Drawing.Color.Black;
             this.lblNormal.Location = new System.Drawing.Point(0, 0);
             this.lblNormal.Name = "lblNormal";
-            this.lblNormal.Size = new System.Drawing.Size(158, 16);
+            this.lblNormal.Size = new System.Drawing.Size(179, 16);
             this.lblNormal.TabIndex = 0;
             this.lblNormal.Text = "NORMAL";
             this.lblNormal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -503,9 +549,9 @@
             this.panelDetalles.Controls.Add(this.label12);
             this.panelDetalles.Controls.Add(this.label13);
             this.panelDetalles.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelDetalles.Location = new System.Drawing.Point(784, 50);
+            this.panelDetalles.Location = new System.Drawing.Point(754, 50);
             this.panelDetalles.Name = "panelDetalles";
-            this.panelDetalles.Size = new System.Drawing.Size(200, 521);
+            this.panelDetalles.Size = new System.Drawing.Size(230, 521);
             this.panelDetalles.TabIndex = 3;
             // 
             // lblDetalles
@@ -514,7 +560,7 @@
             this.lblDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.lblDetalles.Location = new System.Drawing.Point(10, 80);
             this.lblDetalles.Name = "lblDetalles";
-            this.lblDetalles.Size = new System.Drawing.Size(180, 184);
+            this.lblDetalles.Size = new System.Drawing.Size(205, 184);
             this.lblDetalles.TabIndex = 2;
             this.lblDetalles.Text = "Seleccione un medicamento para ver sus detalles...";
             // 
@@ -538,46 +584,6 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Medicamento Seleccionado";
             // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre del Medicamento";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 250;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Código";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 90;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoría";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 70;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio Unitario";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // FechaVencimiento
-            // 
-            this.FechaVencimiento.HeaderText = "Fecha de Vencimiento";
-            this.FechaVencimiento.Name = "FechaVencimiento";
-            this.FechaVencimiento.ReadOnly = true;
-            this.FechaVencimiento.Width = 160;
-            // 
             // Inventario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -587,6 +593,7 @@
             this.Controls.Add(this.panelBusqueda);
             this.Name = "Inventario";
             this.Size = new System.Drawing.Size(984, 571);
+            this.Load += new System.EventHandler(this.Inventario_Load);
             this.panelBusqueda.ResumeLayout(false);
             this.panelBusqueda.PerformLayout();
             this.panelContenido.ResumeLayout(false);

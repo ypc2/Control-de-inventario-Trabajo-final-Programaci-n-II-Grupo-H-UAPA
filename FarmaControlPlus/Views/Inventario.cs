@@ -1,4 +1,5 @@
 ﻿using FarmaControlPlus;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,11 +30,70 @@ namespace TuProyecto.Views
             );
         }
 
+        private void GuardarMedicamentoBD(Medicamento med)
+        {
+            using (NpgsqlConnection conn = new NpgsqlConnection(ConexionBD.CadenaConexion))
+            {
+                conn.Open();
+
+                string sql = @"INSERT INTO medicamentos
+                       (nombre, codigo, categoria, stock, precio_unitario, fecha_vencimiento)
+                       VALUES
+                       (@nombre, @codigo, @categoria, @stock, @precio, @fecha)";
+
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre", med.Nombre);
+                    cmd.Parameters.AddWithValue("@codigo", med.Codigo);
+                    cmd.Parameters.AddWithValue("@categoria", med.Categoria);
+                    cmd.Parameters.AddWithValue("@stock", med.Stock);
+                    cmd.Parameters.AddWithValue("@precio", med.PrecioUnitario);
+                    cmd.Parameters.AddWithValue("@fecha", med.FechaVencimiento);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        private void CargarMedicamentos()
+        {
+            dataGridViewInventario.Rows.Clear();
+            using (NpgsqlConnection conn = new NpgsqlConnection(ConexionBD.CadenaConexion))
+            {
+                conn.Open();
+                string sql = "SELECT nombre, codigo, categoria, stock, precio_unitario, fecha_vencimiento FROM medicamentos";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(sql, conn))
+                {
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string nombre = reader.GetString(0);
+                            string codigo = reader.GetString(1);
+                            string categoria = reader.GetString(2);
+                            int stock = reader.GetInt32(3);
+                            decimal precio = reader.GetDecimal(4);
+                            DateTime fechaVencimiento = reader.GetDateTime(5);
+                            dataGridViewInventario.Rows.Add(
+                                nombre,
+                                codigo,
+                                categoria,
+                                stock,
+                                precio.ToString("N2"),
+                                fechaVencimiento.ToShortDateString()
+                            );
+                        }
+                    }
+                }
+            }
+            AplicarFormatoCelda();
+        }
+
         public Inventario()
         {
             InitializeComponent();
             ConfigurarEstilos();
-            CargarDatosEjemplo();
+            //CargarDatosEjemplo();
             AplicarFormatoCelda();
 
             // Place the guide under lblDetalles but keep readable sizes and horizontal rectangular boxes.
@@ -99,28 +159,28 @@ namespace TuProyecto.Views
             }
         }
 
-        private void CargarDatosEjemplo()
-        {
-            // Limpiar datos existentes
-            dataGridViewInventario.Rows.Clear();
+        //private void CargarDatosEjemplo()
+        //{
+        //    // Limpiar datos existentes
+        //    dataGridViewInventario.Rows.Clear();
 
-            DateTime hoy = DateTime.Now;
+        //    DateTime hoy = DateTime.Now;
 
-            // Datos de ejemplo
-            AgregarMedicamento("Paracetamol 500mg", "PAR001", "Analgésico", 25, "$8.50", hoy.AddDays(15));
-            AgregarMedicamento("Amoxicilina 500mg", "AMX002", "Antibiótico", 8, "$18.50", hoy.AddDays(60));
-            AgregarMedicamento("Ibuprofeno 400mg", "IBU003", "Antiinflamatorio", 42, "$12.00", hoy.AddDays(120));
-            AgregarMedicamento("Omeprazol 20mg", "OME004", "Gastrointestinal", 0, "$15.75", hoy.AddDays(200));
-            AgregarMedicamento("Loratadina 10mg", "LOR005", "Antialérgico", 3, "$9.80", hoy.AddDays(180));
-            AgregarMedicamento("Aspirina 100mg", "ASP006", "Analgésico", 15, "$5.20", hoy.AddDays(-10));
-            AgregarMedicamento("Ranitidina 150mg", "RAN007", "Gastrointestinal", 12, "$10.30", hoy.AddDays(45));
-            AgregarMedicamento("Metformina 850mg", "MET008", "Diabetes", 0, "$22.90", hoy.AddDays(300));
-            AgregarMedicamento("Atorvastatina 20mg", "ATO009", "Colesterol", 28, "$45.50", hoy.AddDays(5));
-            AgregarMedicamento("Losartán 50mg", "LOS010", "Hipertensión", 6, "$28.75", hoy.AddDays(250));
+        //    // Datos de ejemplo
+        //    AgregarMedicamento("Paracetamol 500mg", "PAR001", "Analgésico", 25, "$8.50", hoy.AddDays(15));
+        //    AgregarMedicamento("Amoxicilina 500mg", "AMX002", "Antibiótico", 8, "$18.50", hoy.AddDays(60));
+        //    AgregarMedicamento("Ibuprofeno 400mg", "IBU003", "Antiinflamatorio", 42, "$12.00", hoy.AddDays(120));
+        //    AgregarMedicamento("Omeprazol 20mg", "OME004", "Gastrointestinal", 0, "$15.75", hoy.AddDays(200));
+        //    AgregarMedicamento("Loratadina 10mg", "LOR005", "Antialérgico", 3, "$9.80", hoy.AddDays(180));
+        //    AgregarMedicamento("Aspirina 100mg", "ASP006", "Analgésico", 15, "$5.20", hoy.AddDays(-10));
+        //    AgregarMedicamento("Ranitidina 150mg", "RAN007", "Gastrointestinal", 12, "$10.30", hoy.AddDays(45));
+        //    AgregarMedicamento("Metformina 850mg", "MET008", "Diabetes", 0, "$22.90", hoy.AddDays(300));
+        //    AgregarMedicamento("Atorvastatina 20mg", "ATO009", "Colesterol", 28, "$45.50", hoy.AddDays(5));
+        //    AgregarMedicamento("Losartán 50mg", "LOS010", "Hipertensión", 6, "$28.75", hoy.AddDays(250));
 
-            // Actualizar estadísticas
-            ActualizarEstadisticas();
-        }
+        //    // Actualizar estadísticas
+        //    ActualizarEstadisticas();
+        //}
 
         // Add rows matching the DataGridView columns (do NOT add an extra 'Estado' cell)
         private void AgregarMedicamento(string nombre, string codigo, string categoria, int stock, string precio, DateTime vencimiento)
@@ -247,7 +307,6 @@ namespace TuProyecto.Views
                         AplicarEstiloFila(row, Color.FromArgb(245, 245, 245 ),
                             Color.FromArgb(150, 150, 150), fontStrikeout);
                         break;
-                    case "A PUNTO DE VENCER":
                     case "POR VENCER":
                         // Yellow background with black text
                         AplicarEstiloFila(row, Color.FromArgb(255, 255, 200),
@@ -283,12 +342,15 @@ namespace TuProyecto.Views
             row.DefaultCellStyle.SelectionForeColor = foreColor;
         }
 
+
+
         private void btnNuevoMedicamento_Click(object sender, EventArgs e)
         {
             FrmAgregarMedicamento frm = new FrmAgregarMedicamento();
 
             if (frm.ShowDialog() == DialogResult.OK)
             {
+                GuardarMedicamentoBD(frm.MedicamentoCreado);
                 AgregarMedicamentoAGrid(frm.MedicamentoCreado);
             }
         }
@@ -327,10 +389,10 @@ namespace TuProyecto.Views
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            CargarDatosEjemplo();
+            CargarMedicamentos();  // Este método ya carga desde PostgreSQL
             txtBuscar.Clear();
             AplicarFormatoCelda();
-            MessageBox.Show("Datos actualizados correctamente",
+            MessageBox.Show("Datos actualizados desde la base de datos",
                 "Actualización",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
@@ -455,7 +517,7 @@ namespace TuProyecto.Views
             // Choose a readable width inside the right panel (leave some padding)
             int padding = 5;
             int desiredWidth = Math.Max(180, lblDetalles.Width);
-            desiredWidth = Math.Min(desiredWidth, Math.Max(200, panelDetalles.ClientSize.Width - padding));
+            desiredWidth = Math.Min(desiredWidth, Math.Max(225, panelDetalles.ClientSize.Width - padding));
             groupBoxGuia.Width = desiredWidth;
 
             // Vertical stacking: top-down single column
@@ -506,6 +568,8 @@ namespace TuProyecto.Views
             }
         }
 
+
+
         private void label4_Click(object sender, EventArgs e)
         {
 
@@ -539,6 +603,15 @@ namespace TuProyecto.Views
         private void lblPorVencerGuia_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void flowLayoutPanelGuia_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void Inventario_Load(object sender, EventArgs e)
+        {
+            CargarMedicamentos();
         }
     }
 }
